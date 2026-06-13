@@ -5,8 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Malatang Buddy — Don't Be Scared. We Got You.</title>
 <meta name="description" content="First time eating malatang? How much does it cost? How spicy is it? What's safe to pick? All your fears, answered in 2 minutes.">
-<meta property="og:title" content="Malatang Buddy — Everything You're Scared to Ask">
-<meta property="og:description" content="How much? How spicy? What's safe? All answered.">
+<meta property="og:title" content="Malatang Buddy — Don't Be Scared. We Got You.">
+<meta property="og:description" content="How much does malatang cost? How spicy is it? What's safe to pick? All answered in 2 minutes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://diandian512.github.io/-malatang-buddy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Malatang Buddy — Don't Be Scared. We Got You.">
+<meta name="twitter:description" content="How much does malatang cost? How spicy? What's safe to pick?">
 <meta name="robots" content="index, follow">
 <style>
 :root{--bg:#fff8f0;--card:#fff;--text:#2d2218;--muted:#8b7355;--red:#c0392b;--green:#27ae60;--yellow:#e67e22;--primary:#d35400}
@@ -104,9 +109,9 @@ footer{text-align:center;padding:20px 0;color:var(--muted);font-size:0.8rem}
   <p class="price-explain">Malatang is priced <strong>by weight</strong>. You pick what you want from the fridge, they weigh your bowl, you pay.<br><br>Grab mostly veggies → $3. Add some meat → $5. Go crazy on beef → $8.</p>
   <div class="price-calc">
     <p style="font-size:0.8rem;color:var(--muted);margin-bottom:6px;">Ask the shop: "How much per gram?" — enter it here</p>
-    <span>$</span><input type="number" id="priceGram" value="0.025" step="0.001" min="0.001" placeholder="0.025"><span style="color:var(--muted);">/g</span>
-    <p style="font-size:0.75rem;color:var(--muted);margin-top:4px;">Typical bowl: 400–600g</p>
-    <div class="price-result" id="priceEst">~$10–15 (400–600g bowl)</div>
+    <span>$</span><input type="number" id="priceGram" value="0.01" step="0.001" min="0.001" placeholder="0.01"><span style="color:var(--muted);">/g</span>
+    <p style="font-size:0.75rem;color:var(--muted);margin-top:4px;">Your bowl weight: <input type="number" id="bowlWeight" value="500" style="width:55px;padding:4px;border:1px solid #e0d5c5;border-radius:4px;text-align:center;" min="100" max="1000">g</p>
+    <div class="price-result" id="priceEst">~$5.00</div>
   </div>
 </div>
 
@@ -189,6 +194,16 @@ footer{text-align:center;padding:20px 0;color:var(--muted);font-size:0.8rem}
 </div>
 
 <!-- ⑤ 🤷 TIPS -->
+<div class="card" style="background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;">
+  <div style="text-align:center;">
+    <div style="font-size:2rem;margin-bottom:6px;">📋</div>
+    <h2 style="color:#fff;font-size:1.1rem;">Get the Free Printable Order Card</h2>
+    <p style="opacity:0.9;font-size:0.85rem;margin-top:6px;">Show this to the staff — no Chinese needed. Ingredient translations + sauce recipes.</p>
+    <input type="email" placeholder="your@email.com" style="width:100%;padding:12px;border:none;border-radius:8px;font-size:1rem;margin-top:12px;box-sizing:border-box;">
+    <div style="padding:12px 0;background:rgba(0,0,0,0.15);border-radius:8px;margin-top:8px;font-size:0.8rem;opacity:0.7;">✉️ Card will arrive in your inbox</div>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-header">
     <span class="card-icon">🤷</span>
@@ -201,6 +216,16 @@ footer{text-align:center;padding:20px 0;color:var(--muted);font-size:0.8rem}
     <li><span class="tip-num">4</span> <span><strong>Say 微辣 (<em>wēi là</em>)</strong> for mild. Say 好吃 (<em>hǎo chī</em>) when done — guaranteed smile.</span></li>
     <li><span class="tip-num">5</span> <span><strong>First time is overwhelming. Fifth time is life-changing.</strong> You got this.</span></li>
   </ul>
+</div>
+
+<div style="text-align:center;padding:10px 0 6px;">
+  <p style="font-size:0.8rem;color:var(--muted);margin-bottom:8px;">Know someone who needs this? Share it 🍜</p>
+  <div style="display:flex;justify-content:center;gap:12px;font-size:1.5rem;">
+    <a href="https://twitter.com/intent/tweet?text=First+time+malatang%3F+This+tool+saved+me+%F0%9F%8D%9C&url=https://diandian512.github.io/-malatang-buddy" target="_blank" style="text-decoration:none;">🐦</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://diandian512.github.io/-malatang-buddy" target="_blank" style="text-decoration:none;">📘</a>
+    <a href="https://reddit.com/submit?url=https://diandian512.github.io/-malatang-buddy&title=Free+tool+for+first+time+malatang" target="_blank" style="text-decoration:none;">🤖</a>
+    <a href="#" onclick="if(navigator.share)navigator.share({title:'Malatang Buddy',text:'First time malatang? This tool tells you what\'s safe to pick',url:'https://diandian512.github.io/-malatang-buddy'});return false;" style="text-decoration:none;">📱</a>
+  </div>
 </div>
 
 <footer>🍜 Made for hungry, slightly scared humans</footer>
@@ -264,10 +289,13 @@ function renderIngredients(){
   list.innerHTML=html||'<p style="color:var(--muted);text-align:center;padding:10px;">All 27 ingredients safe ✓</p>';
 }
 
-document.getElementById('priceGram').oninput=function(){
-  const p=parseFloat(this.value)||0.025;
-  document.getElementById('priceEst').textContent='~$'+(400*p).toFixed(2)+'–'+(600*p).toFixed(2)+' (400–600g bowl)';
-};
+document.getElementById('priceGram').oninput=calculatePrice;
+document.getElementById('bowlWeight').oninput=calculatePrice;
+function calculatePrice(){
+  const p=parseFloat(document.getElementById('priceGram').value)||0.01;
+  const w=parseFloat(document.getElementById('bowlWeight').value)||500;
+  document.getElementById('priceEst').textContent='~$'+(p*w).toFixed(2);
+}
 
 renderIngredients();
 </script>
