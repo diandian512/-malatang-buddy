@@ -3,161 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Malatang Buddy — Don't Be Scared. We Got You.</title>
-<meta name="description" content="First time eating malatang? How much does it cost? How spicy is it? What's safe to pick? All your fears, answered in 2 minutes.">
-<meta property="og:title" content="Malatang Buddy — Don't Be Scared. We Got You.">
-<meta property="og:description" content="How much does malatang cost? How spicy is it? What's safe to pick? All answered in 2 minutes.">
+<title>How to Order & Eat Malatang: Beginner's Guide & Free Tool</title>
+<meta name="description" content="First time eating malatang? Learn how to order, what to pick, how spicy it is, what it costs, and what sauces to use. Free interactive tool inside.">
+<meta property="og:title" content="How to Order & Eat Malatang: Beginner's Guide & Free Tool">
+<meta property="og:description" content="First time eating malatang? Learn how to order, what to pick, how much it costs, and what sauces to use.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://diandian512.github.io/-malatang-buddy">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Malatang Buddy — Don't Be Scared. We Got You.">
-<meta name="twitter:description" content="How much does malatang cost? How spicy? What's safe to pick?">
+<meta name="twitter:title" content="How to Order & Eat Malatang: Beginner's Guide">
+<meta name="twitter:description" content="What to pick, how much it costs, what sauces to use. Free tool.">
 <meta name="robots" content="index, follow">
 <style>
 :root{--bg:#fff8f0;--card:#fff;--text:#2d2218;--muted:#8b7355;--red:#c0392b;--green:#27ae60;--yellow:#e67e22;--primary:#d35400}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;scroll-behavior:smooth}
 .container{max-width:480px;margin:0 auto;padding:16px 16px 40px}
-
 .hero{text-align:center;padding:32px 0 20px}
-.hero-icon{font-size:3rem}
-.hero h1{font-size:1.6rem;margin:8px 0 4px;line-height:1.3}
-.hero p{color:var(--muted);font-size:0.9rem}
-
+.hero h1{font-size:1.5rem;margin:8px 0 4px;line-height:1.35}
+.hero p{color:var(--muted);font-size:0.85rem}
 .card{background:var(--card);border-radius:16px;padding:20px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
 .card-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.card-icon{font-size:1.8rem;flex-shrink:0}
-.card h2{font-size:1.15rem;line-height:1.3}
-.card-sub{font-size:0.8rem;color:var(--muted);margin-top:2px}
-
-/* Cost card */
+.card-icon{font-size:1.5rem;flex-shrink:0}
+.card h2{font-size:1.05rem;line-height:1.3;color:var(--text)}
+.card-sub{font-size:0.75rem;color:var(--muted);margin-top:2px}
 .price-hero{text-align:center;padding:16px 0}
 .price-big{font-size:2.8rem;font-weight:800;color:var(--green);line-height:1}
 .price-sub{font-size:0.9rem;color:var(--muted);margin-top:4px}
 .price-explain{font-size:0.9rem;line-height:1.6;text-align:center}
-.price-calc{background:#f9f6f0;border-radius:10px;padding:12px;margin-top:12px;text-align:center}
-.price-calc input{width:70px;padding:8px;border:2px solid #e0d5c5;border-radius:8px;font-size:1rem;text-align:center;margin:0 4px}
-.price-calc input:focus{border-color:var(--primary);outline:none}
-.price-result{font-weight:700;color:var(--primary);font-size:1.1rem;margin-top:8px}
-
-/* Spice */
 .spice-scale{display:flex;flex-direction:column;gap:8px;margin-top:12px}
 .spice-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:#f9f6f0}
 .spice-emoji{font-size:1.3rem;width:28px;text-align:center}
-.spice-name{font-weight:700;font-size:0.9rem;min-width:90px}
-.spice-compare{font-size:0.8rem;color:var(--muted)}
-.spice-verdict{font-size:0.75rem;padding:2px 8px;border-radius:8px;font-weight:700}
+.spice-name{font-weight:700;font-size:0.85rem;min-width:80px}
+.spice-compare{font-size:0.78rem;color:var(--muted);flex:1}
+.spice-verdict{font-size:0.72rem;padding:2px 8px;border-radius:8px;font-weight:700;white-space:nowrap}
 .rec{background:#d5f5e3;color:#1e8449}.warn{background:#fef9e7;color:#b7950b}.danger{background:#fadbd8;color:#922b21}
-
-/* Ingredients */
 .filter-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.filter-chip{padding:6px 12px;border:1.5px solid #e0d5c5;border-radius:16px;font-size:0.8rem;cursor:pointer;background:#fff;transition:all 0.15s;user-select:none}
+.filter-chip{padding:6px 12px;border:1.5px solid #e0d5c5;border-radius:16px;font-size:0.78rem;cursor:pointer;background:#fff;transition:all 0.15s;user-select:none}
 .filter-chip:hover{border-color:var(--primary)}
 .filter-chip.on{background:var(--primary);color:#fff;border-color:var(--primary)}
-
 .ingredient-list{display:flex;flex-direction:column;gap:4px}
-.ing-row{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:0.85rem}
-.ing-row.safe{background:#eafaf1}.ing-row.warn{opacity:0.4;text-decoration:line-through;background:#fdf2f2}
-.ing-emoji{font-size:1.2rem;width:24px;text-align:center}
-.ing-name{font-weight:600;flex:1}
-.ing-chinese{color:var(--muted);font-size:0.75rem}
-.ing-reason{font-size:0.7rem;color:var(--red)}
-
-/* Sauce */
-.sauce-card{border-radius:10px;padding:12px;margin:8px 0;font-size:0.85rem}
-.sauce-card h4{margin-bottom:4px;font-size:0.9rem}
-.sauce-card p{color:var(--muted);font-size:0.8rem}
+.ing-row{display:flex;align-items:center;gap:6px;padding:8px 10px;border-radius:8px;font-size:0.82rem;transition:all 0.15s}
+.ing-row.safe{background:#eafaf1;cursor:pointer}
+.ing-row.safe:active{background:#d5f5e3;transform:scale(0.98)}
+.ing-row.warn{opacity:0.4;text-decoration:line-through;background:#fdf2f2}
+.ing-row.selected{border:2px solid var(--primary);background:#fef5eb}
+.ing-emoji{font-size:1.1rem;width:24px;text-align:center;flex-shrink:0}
+.ing-name{font-weight:600;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ing-chinese{color:var(--muted);font-size:0.7rem;flex-shrink:0}
+.ing-weight{color:var(--primary);font-size:0.7rem;font-weight:600;white-space:nowrap;flex-shrink:0}
+.ing-badge{width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:0.7rem;flex-shrink:0}
+.ing-badge.unselected{background:#e0d5c5;color:#fff}.ing-badge.selected{background:var(--green);color:#fff}
+.ing-reason{font-size:0.68rem;color:var(--red);flex-shrink:0}
+.cart-bar{position:sticky;bottom:0;background:#fff;border:2px solid var(--primary);border-radius:14px;padding:12px 16px;margin-top:12px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 -2px 12px rgba(0,0,0,0.08);gap:8px;flex-wrap:wrap}
+.cart-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cart-count{background:var(--primary);color:#fff;border-radius:12px;padding:2px 8px;font-size:0.75rem;font-weight:700}
+.cart-weight{font-size:0.78rem;color:var(--muted)}
+.cart-price{font-size:1.1rem;font-weight:800;color:var(--primary)}
+.cart-reset{font-size:0.7rem;color:var(--muted);cursor:pointer;padding:4px}
+.price-rate{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0;justify-content:center}
+.price-rate input{width:70px;padding:8px;border:2px solid #e0d5c5;border-radius:8px;font-size:1rem;text-align:center}
+.price-rate input:focus{border-color:var(--primary);outline:none}
+.price-rate label{font-size:0.8rem;color:var(--muted)}
+.sauce-card{border-radius:10px;padding:12px;margin:8px 0;font-size:0.82rem}
+.sauce-card h4{margin-bottom:4px;font-size:0.88rem}
+.sauce-card p{color:var(--muted);font-size:0.78rem}
 .sauce-a{background:#fef9e7;border:1.5px solid #f0d78c}
 .sauce-b{background:#fdedec;border:1.5px solid #e8b4b0}
 .sauce-c{background:#eaf2f8;border:1.5px solid #aed6f1}
-
-/* Tips */
 .tip-list{list-style:none}
-.tip-list li{padding:8px 0;border-bottom:1px solid #f0ebe0;font-size:0.9rem;display:flex;gap:8px}
+.tip-list li{padding:8px 0;border-bottom:1px solid #f0ebe0;font-size:0.85rem;display:flex;gap:8px}
 .tip-list li:last-child{border:none}
 .tip-num{color:var(--primary);font-weight:700;flex-shrink:0}
-
-footer{text-align:center;padding:20px 0;color:var(--muted);font-size:0.8rem}
-
+.portion-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.portion-item{background:#f9f6f0;border-radius:8px;padding:8px;text-align:center;font-size:0.75rem}
+.portion-item strong{display:block;font-size:0.82rem;color:var(--text)}
+.portion-item span{color:var(--muted)}
+em{color:#0069d9;font-style:normal;font-weight:500}
+footer{text-align:center;padding:20px 0;color:var(--muted);font-size:0.78rem}
+.seo-faq{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 @media(max-width:380px){
   .container{padding:12px}
-  .hero h1{font-size:1.4rem}
+  .hero h1{font-size:1.3rem}
   .price-big{font-size:2.4rem}
+  .portion-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 <div class="container">
 
-<!-- HERO -->
 <div class="hero">
-  <div class="hero-icon">🍜</div>
-  <h1>First time malatang?<br>Don't panic. We got you.</h1>
-  <p>All your fears, answered in 2 minutes ↓</p>
+  <h1>First Time Eating Malatang?<br>Here's How to Order</h1>
+  <p>What to pick, how much it costs, what sauces to use — all in 2 minutes ↓</p>
 </div>
 
-<!-- ① 💰 HOW MUCH -->
+<!-- 1. What is malatang -->
 <div class="card">
   <div class="card-header">
-    <span class="card-icon">💰</span>
-    <div><h2>How much does it cost?</h2><p class="card-sub">Your biggest fear, first.</p></div>
+    <span class="card-icon">🍜</span>
+    <div><h2>What Is Malatang? How Does It Work?</h2><p class="card-sub">Chinese spicy hot pot, but fast and solo.</p></div>
   </div>
-  <div class="price-hero">
-    <div class="price-big">$3–6</div>
-    <div class="price-sub">for a normal bowl</div>
-  </div>
-  <p class="price-explain">Malatang is priced <strong>by weight</strong>. You pick what you want from the fridge, they weigh your bowl, you pay.<br><br>Grab mostly veggies → $3. Add some meat → $5. Go crazy on beef → $8.</p>
-  <div class="price-calc">
-    <p style="font-size:0.8rem;color:var(--muted);margin-bottom:6px;">Ask the shop: "How much per gram?" — enter it here</p>
-    <span>$</span><input type="number" id="priceGram" value="0.01" step="0.001" min="0.001" placeholder="0.01"><span style="color:var(--muted);">/g</span>
-    <p style="font-size:0.75rem;color:var(--muted);margin-top:4px;">Your bowl weight: <input type="number" id="bowlWeight" value="500" style="width:55px;padding:4px;border:1px solid #e0d5c5;border-radius:4px;text-align:center;" min="100" max="1000">g</p>
-    <div class="price-result" id="priceEst">~$5.00</div>
+  <p style="font-size:0.9rem;">Malatang is like Chipotle meets hot pot. You grab a bowl, pick raw ingredients from a fridge, hand it to the cook, and 3 minutes later you're eating.</p>
+  <div style="display:flex;gap:8px;margin:12px 0;">
+    <div style="flex:1;background:#f9f6f0;border-radius:10px;padding:10px;text-align:center;">
+      <div style="font-size:1.5rem;">🥣</div>
+      <div style="font-size:0.7rem;color:var(--muted);">Step 1<br><strong>Pick ingredients</strong></div>
+    </div>
+    <div style="flex:1;background:#f9f6f0;border-radius:10px;padding:10px;text-align:center;">
+      <div style="font-size:1.5rem;">⚖️</div>
+      <div style="font-size:0.7rem;color:var(--muted);">Step 2<br><strong>Pay by weight</strong></div>
+    </div>
+    <div style="flex:1;background:#f9f6f0;border-radius:10px;padding:10px;text-align:center;">
+      <div style="font-size:1.5rem;">🔥</div>
+      <div style="font-size:0.7rem;color:var(--muted);">Step 3<br><strong>Eat & enjoy</strong></div>
+    </div>
   </div>
 </div>
 
-<!-- ② 🌶️ HOW SPICY -->
-<div class="card">
-  <div class="card-header">
-    <span class="card-icon">🌶️</span>
-    <div><h2>How spicy is it?</h2><p class="card-sub">You can choose. Really.</p></div>
-  </div>
-  <div class="spice-scale">
-    <div class="spice-row">
-      <span class="spice-emoji">🍅</span><span class="spice-name">Not Spicy</span>
-      <span class="spice-compare">Like marinara</span>
-      <span class="spice-verdict rec">Safe</span>
-    </div>
-    <div class="spice-row">
-      <span class="spice-emoji">🌶️</span><span class="spice-name">Mild <em>微辣</em></span>
-      <span class="spice-compare">Like buffalo wings</span>
-      <span class="spice-verdict rec">★ Start here</span>
-    </div>
-    <div class="spice-row">
-      <span class="spice-emoji">🌶️🌶️</span><span class="spice-name">Medium <em>中辣</em></span>
-      <span class="spice-compare">Like jalapeño salsa</span>
-      <span class="spice-verdict warn">You'll feel it</span>
-    </div>
-    <div class="spice-row">
-      <span class="spice-emoji">🌶️🌶️🌶️</span><span class="spice-name">Hot <em>特辣</em></span>
-      <span class="spice-compare">Like Thai curry ×2</span>
-      <span class="spice-verdict danger">Brave only</span>
-    </div>
-    <div class="spice-row" style="background:#fef0f5;">
-      <span class="spice-emoji">⚡</span><span class="spice-name">Numbing <em>麻</em></span>
-      <span class="spice-compare">Tingly, buzzing, NOT pain</span>
-      <span class="spice-verdict" style="background:#f5e6ff;color:#7d3c98;">Not allergic!</span>
-    </div>
-  </div>
-  <p style="font-size:0.8rem;color:var(--muted);margin-top:10px;">The numbness is Sichuan peppercorn. It fades in 5 minutes. <strong>You're not having a reaction.</strong></p>
-</div>
-
-<!-- ③ ❓ WHAT'S SAFE -->
+<!-- 2. How to order (ingredients with weight) -->
 <div class="card">
   <div class="card-header">
     <span class="card-icon">❓</span>
-    <div><h2>What's safe to pick?</h2><p class="card-sub">The fridge has 40+ things. No English labels.</p></div>
+    <div><h2>How to Order Malatang: What to Pick</h2><p class="card-sub">Tap ingredients to add them to your bowl. Weights per portion shown.</p></div>
   </div>
-  <p style="font-size:0.8rem;color:var(--muted);margin-bottom:10px;">Tap what applies to you:</p>
   <div class="filter-row" id="filters">
     <span class="filter-chip" data-val="peanut">🥜 Peanut</span>
     <span class="filter-chip" data-val="seafood">🦐 Seafood</span>
@@ -167,137 +135,232 @@ footer{text-align:center;padding:20px 0;color:var(--muted);font-size:0.8rem}
     <span class="filter-chip" data-val="halal">🕌 Halal</span>
   </div>
   <div class="ingredient-list" id="ingList"></div>
+  <div class="cart-bar" id="cartBar">
+    <div class="cart-left">
+      <span class="cart-count" id="cartCount">0</span>
+      <span class="cart-weight" id="cartWeight">0g</span>
+      <span class="cart-reset" id="cartReset">✕ Clear</span>
+    </div>
+    <span class="cart-price" id="cartPrice">$0.00</span>
+  </div>
 </div>
 
-<!-- ④ 🥘 SAUCE -->
+<!-- Portion weight guide -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-icon">🤚</span>
+    <div><h2>How Much Is That by Hand?</h2><p class="card-sub">No scale? No problem. Use your hand to estimate.</p></div>
+  </div>
+  <div class="portion-grid">
+    <div class="portion-item"><strong>🥩 Meat</strong><span>One palm ≈ 80g</span></div>
+    <div class="portion-item"><strong>🥬 Veggies</strong><span>One handful ≈ 50g</span></div>
+    <div class="portion-item"><strong>🍄 Mushrooms</strong><span>5-6 enoki bunches ≈ 50g</span></div>
+    <div class="portion-item"><strong>🥟 Tofu</strong><span>3-4 cubes ≈ 60g</span></div>
+    <div class="portion-item"><strong>🍜 Noodles (dry)</strong><span>One fistful ≈ 50g</span></div>
+    <div class="portion-item"><strong>🥚 Quail egg</strong><span>3-4 pieces ≈ 30g</span></div>
+    <div class="portion-item"><strong>🦐 Shrimp</strong><span>3-4 pieces ≈ 50g</span></div>
+    <div class="portion-item"><strong>🍡 Fish ball</strong><span>3-4 pieces ≈ 50g</span></div>
+  </div>
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;text-align:center;">Rule of thumb: fill bowl to <strong>70%</strong> = ~400-600g total</p>
+</div>
+
+<!-- 3. Spice level -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-icon">🌶️</span>
+    <div><h2>What Does Malatang Taste Like? Spice Levels Explained</h2><p class="card-sub">From "not spicy" to "extra hot" — plus the numbing sensation.</p></div>
+  </div>
+  <p style="font-size:0.78rem;color:var(--muted);margin-bottom:8px;">Tell the cashier which level you want:</p>
+  <div class="spice-scale">
+    <div class="spice-row"><span class="spice-emoji">🍅</span><span class="spice-name">Not Spicy</span><span class="spice-compare">Like marinara</span><span class="spice-verdict rec">Safe</span></div>
+    <div class="spice-row"><span class="spice-emoji">🌶️</span><span class="spice-name">Mild 微辣</span><span class="spice-compare">Like buffalo wings</span><span class="spice-verdict rec">★ Start here</span></div>
+    <div class="spice-row"><span class="spice-emoji">🌶️🌶️</span><span class="spice-name">Medium 中辣</span><span class="spice-compare">Like jalapeño salsa</span><span class="spice-verdict warn">You'll feel it</span></div>
+    <div class="spice-row"><span class="spice-emoji">🌶️🌶️🌶️</span><span class="spice-name">Hot 特辣</span><span class="spice-compare">Like Thai curry ×2</span><span class="spice-verdict danger">Brave only</span></div>
+    <div class="spice-row" style="background:#fef0f5;"><span class="spice-emoji">⚡</span><span class="spice-name">Numbing 麻</span><span class="spice-compare">Tingly — NOT an allergy</span><span class="spice-verdict" style="background:#f5e6ff;color:#7d3c98;">Normal!</span></div>
+  </div>
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:10px;">The numbing comes from Sichuan peppercorn. It's not an allergic reaction — it fades in 5 minutes.</p>
+</div>
+
+<!-- 4. Price calculator -->
+<div class="card">
+  <div class="card-header">
+    <span class="card-icon">💰</span>
+    <div><h2>How Much Does Malatang Cost?</h2><p class="card-sub">Priced by weight. Enter your shop's rate, then tap ingredients above.</p></div>
+  </div>
+  <div class="price-hero">
+    <div class="price-big">$3–6</div>
+    <div class="price-sub">for a normal bowl (400–600g)</div>
+  </div>
+  <p class="price-explain">Price depends on what you pick. Mostly veggies = cheap. Add meat = moderate. Go crazy with beef = pricier.</p>
+  <div class="price-rate">
+    <label>Price:</label>
+    <input type="number" id="priceGram" value="0.01" step="0.001" min="0.001" placeholder="0.01">
+    <label>/ gram</label>
+  </div>
+  <p style="font-size:0.72rem;color:var(--muted);text-align:center;">Yangguofu in China ≈ ¥2.98/50g = $0.008/g<br>Not sure? Start with <strong>$0.01/g</strong> and adjust.</p>
+</div>
+
+<!-- 5. Sauce guide -->
 <div class="card">
   <div class="card-header">
     <span class="card-icon">🥘</span>
-    <div><h2>What sauce do I make?</h2><p class="card-sub">10 bowls of mystery liquid. 3 foolproof combos.</p></div>
+    <div><h2>What Sauce Goes With Malatang? 3 Easy Combos</h2><p class="card-sub">10 mystery bowls. 3 foolproof recipes.</p></div>
   </div>
   <div class="sauce-card sauce-a">
     <h4>🥜 Classic Sesame (safe, nutty)</h4>
     <p>Sesame paste 芝麻酱 + garlic water 蒜水 + vinegar 醋 + cilantro</p>
-    <p style="font-size:0.75rem;">→ Best with: beef, tofu, noodles, cabbage</p>
+    <p style="font-size:0.72rem;">→ Best with: beef, tofu, noodles, cabbage</p>
   </div>
   <div class="sauce-card sauce-b">
     <h4>🌶️ Spicy Garlic (hot, bold)</h4>
     <p>Chili oil 辣椒油 + soy sauce 酱油 + minced garlic 蒜泥 + scallions</p>
-    <p style="font-size:0.75rem;">→ Best with: tripe, mushrooms, lotus root</p>
+    <p style="font-size:0.72rem;">→ Best with: tripe, mushrooms, lotus root</p>
   </div>
   <div class="sauce-card sauce-c">
     <h4>🧂 Light & Clean (mild, easy)</h4>
     <p>Soy sauce 酱油 + vinegar 醋 + sesame oil 香油 + scallions</p>
-    <p style="font-size:0.75rem;">→ Best with: veggies, shrimp, fish balls</p>
+    <p style="font-size:0.72rem;">→ Best with: veggies, shrimp, fish balls</p>
   </div>
-  <p style="font-size:0.75rem;color:var(--muted);margin-top:8px;">💡 No English labels? Match the Chinese characters above.</p>
+  <p style="font-size:0.72rem;color:var(--muted);margin-top:8px;">No English labels? Match the Chinese characters above.</p>
 </div>
 
-<!-- ⑤ 🤷 TIPS -->
+<!-- Email capture -->
 <div class="card" style="background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;">
   <div style="text-align:center;">
     <div style="font-size:2rem;margin-bottom:6px;">📋</div>
-    <h2 style="color:#fff;font-size:1.1rem;">Get the Free Printable Order Card</h2>
-    <p style="opacity:0.9;font-size:0.85rem;margin-top:6px;">Show this to the staff — no Chinese needed. Ingredient translations + sauce recipes.</p>
+    <h2 style="color:#fff;font-size:1rem;">Free Printable Malatang Order Card</h2>
+    <p style="opacity:0.9;font-size:0.82rem;margin-top:6px;">Show this to the staff — ingredient translations + sauce recipes.</p>
     <input type="email" placeholder="your@email.com" style="width:100%;padding:12px;border:none;border-radius:8px;font-size:1rem;margin-top:12px;box-sizing:border-box;">
-    <div style="padding:12px 0;background:rgba(0,0,0,0.15);border-radius:8px;margin-top:8px;font-size:0.8rem;opacity:0.7;">✉️ Card will arrive in your inbox</div>
+    <div style="padding:12px 0;background:rgba(0,0,0,0.15);border-radius:8px;margin-top:8px;font-size:0.78rem;opacity:0.7;">✉️ Card will arrive in your inbox</div>
   </div>
 </div>
 
+<!-- Tips -->
 <div class="card">
-  <div class="card-header">
-    <span class="card-icon">🤷</span>
-    <div><h2>Anything else I should know?</h2></div>
-  </div>
+  <div class="card-header"><span class="card-icon">🤷</span><div><h2>More Tips for First-Timers</h2></div></div>
   <ul class="tip-list">
-    <li><span class="tip-num">1</span> <span><strong>Can I drink the broth?</strong> Yes — unless you ordered 特辣. Your stomach may disagree.</span></li>
+    <li><span class="tip-num">1</span> <span><strong>Can I drink the broth?</strong> Yes — unless you ordered 特辣.</span></li>
     <li><span class="tip-num">2</span> <span><strong>Fill your bowl to 70%.</strong> It expands when cooked.</span></li>
-    <li><span class="tip-num">3</span> <span><strong>Grab chopsticks AND a spoon.</strong> You'll want both.</span></li>
-    <li><span class="tip-num">4</span> <span><strong>Say 微辣 (<em>wēi là</em>)</strong> for mild. Say 好吃 (<em>hǎo chī</em>) when done — guaranteed smile.</span></li>
-    <li><span class="tip-num">5</span> <span><strong>First time is overwhelming. Fifth time is life-changing.</strong> You got this.</span></li>
+    <li><span class="tip-num">3</span> <span><strong>Grab chopsticks AND a spoon.</strong> You'll need both.</span></li>
+    <li><span class="tip-num">4</span> <span><strong>Say 微辣 (wēi là)</strong> for mild spicy. Say 好吃 (hǎo chī) when you're done.</span></li>
+    <li><span class="tip-num">5</span> <span><strong>First time is overwhelming. Fifth time is life-changing.</strong></span></li>
   </ul>
 </div>
 
+<!-- Share -->
 <div style="text-align:center;padding:10px 0 6px;">
-  <p style="font-size:0.8rem;color:var(--muted);margin-bottom:8px;">Know someone who needs this? Share it 🍜</p>
-  <div style="display:flex;justify-content:center;gap:12px;font-size:1.5rem;">
-    <a href="https://twitter.com/intent/tweet?text=First+time+malatang%3F+This+tool+saved+me+%F0%9F%8D%9C&url=https://diandian512.github.io/-malatang-buddy" target="_blank" style="text-decoration:none;">🐦</a>
+  <p style="font-size:0.78rem;color:var(--muted);margin-bottom:8px;">Know someone trying malatang for the first time? Share this 🍜</p>
+  <div style="display:flex;justify-content:center;gap:12px;font-size:1.4rem;">
+    <a href="https://twitter.com/intent/tweet?text=How+to+order+malatang+as+a+beginner+%F0%9F%8D%9C+This+free+tool+tells+you+what+to+pick&url=https://diandian512.github.io/-malatang-buddy" target="_blank" style="text-decoration:none;">🐦</a>
     <a href="https://www.facebook.com/sharer/sharer.php?u=https://diandian512.github.io/-malatang-buddy" target="_blank" style="text-decoration:none;">📘</a>
-    <a href="https://reddit.com/submit?url=https://diandian512.github.io/-malatang-buddy&title=Free+tool+for+first+time+malatang" target="_blank" style="text-decoration:none;">🤖</a>
-    <a href="#" onclick="if(navigator.share)navigator.share({title:'Malatang Buddy',text:'First time malatang? This tool tells you what\'s safe to pick',url:'https://diandian512.github.io/-malatang-buddy'});return false;" style="text-decoration:none;">📱</a>
+    <a href="#" onclick="if(navigator.share)navigator.share({title:'How to order malatang as a beginner',text:'This free tool tells you what to pick and how much it costs',url:'https://diandian512.github.io/-malatang-buddy'});return false;" style="text-decoration:none;">📱</a>
   </div>
 </div>
 
-<footer>🍜 Made for hungry, slightly scared humans</footer>
+<footer>🍜 Malatang Buddy — helping first-timers eat with confidence</footer>
+
+<!-- SEO FAQ -->
+<div class="seo-faq" aria-hidden="true">
+  <h2>Frequently Asked Questions About Malatang</h2>
+  <p>What is malatang? Malatang is a Chinese spicy soup dish where you pick your own ingredients and pay by weight.</p>
+  <p>How do you order malatang? Grab a bowl, pick ingredients from the fridge, hand it to the cashier, choose your spice level, and wait 3 minutes.</p>
+  <p>How much does malatang cost? A normal bowl costs $3-6 depending on what you pick. Price is by weight.</p>
+  <p>Is malatang spicy? You can choose your spice level from not spicy to extra spicy. Beginners should start with 微辣 (mild).</p>
+  <p>What does malatang taste like? It's a savory, spicy, numbing broth with fresh ingredients. The numbing comes from Sichuan peppercorn.</p>
+  <p>Can vegetarians eat malatang? Yes. Choose tomato or mushroom broth and pick vegetables, tofu, and glass noodles.</p>
+  <p>Is malatang gluten free? Most ingredients are naturally gluten free. Avoid instant noodles and luncheon meat.</p>
+  <p>Is malatang halal? Some Yangguofu locations are halal-certified. Ask for chicken or lamb instead of pork.</p>
+  <p>What sauce goes with malatang? Try the classic sesame combo, spicy garlic combo, or light & clean combo.</p>
+  <p>What ingredients are in malatang? Beef, lamb, chicken, fish balls, tofu, mushrooms, vegetables, noodles, and more.</p>
+</div>
 
 </div>
 
 <script>
 const ingredients=[
-  {emoji:"🥩",name:"Beef Slices",cn:"肥牛",cal:250,g:80,all:[],veg:false,halal:false},
-  {emoji:"🐑",name:"Lamb Slices",cn:"羊肉",cal:280,g:80,all:[],veg:false,halal:true},
-  {emoji:"🍗",name:"Chicken Breast",cn:"鸡胸肉",cal:165,g:70,all:[],veg:false,halal:true},
-  {emoji:"🐟",name:"Fish Balls",cn:"鱼丸",cal:80,g:40,all:["seafood"],veg:false,halal:true},
-  {emoji:"🦐",name:"Shrimp",cn:"虾",cal:99,g:50,all:["seafood"],veg:false,halal:true},
-  {emoji:"🥚",name:"Quail Eggs",cn:"鹌鹑蛋",cal:158,g:30,all:[],veg:false,halal:true},
-  {emoji:"🥫",name:"Luncheon Meat",cn:"午餐肉",cal:310,g:60,all:["pork","gluten"],veg:false,halal:false},
-  {emoji:"🩸",name:"Blood Tofu",cn:"鸭血",cal:60,g:60,all:[],veg:false,halal:false},
-  {emoji:"🧈",name:"Firm Tofu",cn:"豆腐",cal:76,g:80,all:[],veg:true,halal:true},
-  {emoji:"🫘",name:"Tofu Skin",cn:"豆腐皮",cal:82,g:40,all:[],veg:true,halal:true},
-  {emoji:"🧈",name:"Fried Tofu Puffs",cn:"油豆腐",cal:150,g:50,all:[],veg:true,halal:true},
-  {emoji:"🥬",name:"Napa Cabbage",cn:"大白菜",cal:13,g:80,all:[],veg:true,halal:true},
-  {emoji:"🥬",name:"Spinach",cn:"菠菜",cal:23,g:60,all:[],veg:true,halal:true},
-  {emoji:"🍄",name:"Enoki Mushrooms",cn:"金针菇",cal:37,g:50,all:[],veg:true,halal:true},
-  {emoji:"🍄",name:"Wood Ear Mushroom",cn:"木耳",cal:25,g:40,all:[],veg:true,halal:true},
-  {emoji:"🥔",name:"Potato Slices",cn:"土豆片",cal:77,g:70,all:[],veg:true,halal:true},
-  {emoji:"🪷",name:"Lotus Root",cn:"藕片",cal:74,g:60,all:[],veg:true,halal:true},
-  {emoji:"🌿",name:"Kelp Knots",cn:"海带结",cal:43,g:40,all:["seafood"],veg:true,halal:true},
-  {emoji:"🌿",name:"Cilantro",cn:"香菜",cal:23,g:10,all:[],veg:true,halal:true},
-  {emoji:"🍜",name:"Instant Noodles",cn:"方便面",cal:440,g:100,all:["gluten"],veg:false,halal:true},
-  {emoji:"🍜",name:"Glass Noodles",cn:"粉丝",cal:80,g:60,all:[],veg:true,halal:true},
-  {emoji:"🍚",name:"Rice Cake",cn:"年糕",cal:120,g:60,all:[],veg:true,halal:true},
-  {emoji:"🥦",name:"Broccoli",cn:"西兰花",cal:34,g:60,all:[],veg:true,halal:true},
-  {emoji:"🌽",name:"Corn",cn:"玉米",cal:96,g:50,all:[],veg:true,halal:true},
-  {emoji:"🥩",name:"Beef Tripe",cn:"毛肚",cal:85,g:50,all:[],veg:false,halal:false},
-  {emoji:"🐔",name:"Chicken Feet",cn:"鸡爪",cal:215,g:60,all:[],veg:false,halal:true},
-  {emoji:"🫘",name:"Fish Tofu",cn:"鱼豆腐",cal:100,g:50,all:["seafood"],veg:false,halal:true}
+{emoji:"🥩",name:"Beef Slices",cn:"肥牛",g:80,all:[],veg:false,halal:false},
+{emoji:"🐑",name:"Lamb Slices",cn:"羊肉",g:80,all:[],veg:false,halal:true},
+{emoji:"🍗",name:"Chicken Breast",cn:"鸡胸肉",g:70,all:[],veg:false,halal:true},
+{emoji:"🐟",name:"Fish Balls",cn:"鱼丸",g:50,all:["seafood"],veg:false,halal:true},
+{emoji:"🦐",name:"Shrimp",cn:"虾",g:50,all:["seafood"],veg:false,halal:true},
+{emoji:"🥚",name:"Quail Eggs",cn:"鹌鹑蛋",g:30,all:[],veg:false,halal:true},
+{emoji:"🥫",name:"Luncheon Meat",cn:"午餐肉",g:50,all:["pork","gluten"],veg:false,halal:false},
+{emoji:"🩸",name:"Blood Tofu",cn:"鸭血",g:50,all:[],veg:false,halal:false},
+{emoji:"🧈",name:"Firm Tofu",cn:"豆腐",g:80,all:[],veg:true,halal:true},
+{emoji:"🫘",name:"Tofu Skin",cn:"豆腐皮",g:40,all:[],veg:true,halal:true},
+{emoji:"🧈",name:"Fried Tofu Puffs",cn:"油豆腐",g:50,all:[],veg:true,halal:true},
+{emoji:"🥬",name:"Napa Cabbage",cn:"大白菜",g:50,all:[],veg:true,halal:true},
+{emoji:"🥬",name:"Spinach",cn:"菠菜",g:50,all:[],veg:true,halal:true},
+{emoji:"🍄",name:"Enoki Mushrooms",cn:"金针菇",g:50,all:[],veg:true,halal:true},
+{emoji:"🍄",name:"Wood Ear Mushroom",cn:"木耳",g:50,all:[],veg:true,halal:true},
+{emoji:"🥔",name:"Potato Slices",cn:"土豆片",g:70,all:[],veg:true,halal:true},
+{emoji:"🪷",name:"Lotus Root",cn:"藕片",g:60,all:[],veg:true,halal:true},
+{emoji:"🌿",name:"Kelp Knots",cn:"海带结",g:40,all:["seafood"],veg:true,halal:true},
+{emoji:"🌿",name:"Cilantro",cn:"香菜",g:10,all:[],veg:true,halal:true},
+{emoji:"🍜",name:"Instant Noodles",cn:"方便面",g:100,all:["gluten"],veg:false,halal:true},
+{emoji:"🍜",name:"Glass Noodles",cn:"粉丝",g:50,all:[],veg:true,halal:true},
+{emoji:"🍚",name:"Rice Cake",cn:"年糕",g:60,all:[],veg:true,halal:true},
+{emoji:"🥦",name:"Broccoli",cn:"西兰花",g:50,all:[],veg:true,halal:true},
+{emoji:"🌽",name:"Corn",cn:"玉米",g:100,all:[],veg:true,halal:true},
+{emoji:"🥩",name:"Beef Tripe",cn:"毛肚",g:50,all:[],veg:false,halal:false},
+{emoji:"🐔",name:"Chicken Feet",cn:"鸡爪",g:60,all:[],veg:false,halal:true},
+{emoji:"🫘",name:"Fish Tofu",cn:"鱼豆腐",g:50,all:["seafood"],veg:false,halal:true}
 ];
 
+let selected=new Set();
 let filters=new Set();
 
 document.querySelectorAll('#filters .filter-chip').forEach(c=>{
-  c.onclick=()=>{c.classList.toggle('on');filters.has(c.dataset.val)?filters.delete(c.dataset.val):filters.add(c.dataset.val);renderIngredients();};
+  c.onclick=()=>{
+    c.classList.toggle('on');
+    if(filters.has(c.dataset.val)) filters.delete(c.dataset.val);
+    else filters.add(c.dataset.val);
+    renderIngredients();
+  };
 });
 
 function renderIngredients(){
-  const list=document.getElementById('ingList');
-  let html='';
-  ingredients.forEach(i=>{
+  const list=document.getElementById('ingList');let html='';
+  ingredients.forEach((i,idx)=>{
     let skip='';
     for(let f of filters){
       if(i.all.includes(f)){skip='Contains '+f;break;}
       if(f==='halal'&&!i.halal){skip='Not halal';break;}
       if(f==='vegetarian'&&!i.veg){skip='Not vegetarian';break;}
-      if(f==='pork'&&i.all.includes('pork')){skip='Contains pork';break;}
     }
+    const sel=selected.has(idx);
     if(skip){
-      html+=`<div class="ing-row warn"><span class="ing-emoji">${i.emoji}</span><span class="ing-name">${i.name}</span><span class="ing-chinese">${i.cn}</span><span class="ing-reason">${skip}</span></div>`;
+      html+='<div class="ing-row warn"><span class="ing-emoji">'+i.emoji+'</span><span class="ing-name">'+i.name+'</span><span class="ing-chinese">'+i.cn+'</span><span class="ing-weight">'+i.g+'g</span><span class="ing-reason">'+skip+'</span></div>';
     }else{
-      html+=`<div class="ing-row safe"><span class="ing-emoji">${i.emoji}</span><span class="ing-name">${i.name}</span><span class="ing-chinese">${i.cn}</span><span style="font-size:0.75rem;color:var(--green);">✓</span></div>`;
+      html+='<div class="ing-row safe'+(sel?' selected':'')+'" data-idx="'+idx+'"><span class="ing-emoji">'+i.emoji+'</span><span class="ing-name">'+i.name+'</span><span class="ing-chinese">'+i.cn+'</span><span class="ing-weight">'+i.g+'g</span><span class="ing-badge '+(sel?'selected':'unselected')+'">'+(sel?'✓':'+')+'</span></div>';
     }
   });
-  list.innerHTML=html||'<p style="color:var(--muted);text-align:center;padding:10px;">All 27 ingredients safe ✓</p>';
+  list.innerHTML=html;
+  document.querySelectorAll('.ing-row.safe').forEach(el=>{
+    el.onclick=()=>{
+      const idx=parseInt(el.dataset.idx);
+      if(selected.has(idx)) selected.delete(idx);else selected.add(idx);
+      updateCart();
+      renderIngredients();
+    };
+  });
 }
 
-document.getElementById('priceGram').oninput=calculatePrice;
-document.getElementById('bowlWeight').oninput=calculatePrice;
-function calculatePrice(){
-  const p=parseFloat(document.getElementById('priceGram').value)||0.01;
-  const w=parseFloat(document.getElementById('bowlWeight').value)||500;
-  document.getElementById('priceEst').textContent='~$'+(p*w).toFixed(2);
+function updateCart(){
+  const price=parseFloat(document.getElementById('priceGram').value)||0.01;
+  let totalG=0, count=0;
+  selected.forEach(idx=>{totalG+=ingredients[idx].g;count++;});
+  document.getElementById('cartCount').textContent=count;
+  document.getElementById('cartWeight').textContent=totalG+'g';
+  document.getElementById('cartPrice').textContent='~$'+(totalG*price).toFixed(2);
 }
 
-renderIngredients();
+document.getElementById('cartReset').onclick=()=>{selected.clear();updateCart();renderIngredients();};
+document.getElementById('priceGram').oninput=updateCart;
+
+document.querySelectorAll('.cart-bar .cart-count, .cart-bar .cart-weight, .cart-bar .cart-price').forEach(el=>el.style.pointerEvents='auto');
+
+updateCart();
 </script>
 </body>
 </html>
