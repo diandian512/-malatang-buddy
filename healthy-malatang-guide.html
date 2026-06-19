@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthy Málà Tāng — The Complete Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #faf8f5;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 40%, #e67e22 100%);
+    color: #fff;
+    padding: 80px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '🌶️';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-size: 200px;
+    opacity: 0.08;
+    transform: rotate(-15deg);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Container */
+  .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+  /* Stats bar */
+  .stats-bar {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .stats-bar .container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .stat-item .num { font-size: 1.4rem; font-weight: 800; color: #c0392b; }
+  .stat-item .label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Section header */
+  .section-header {
+    text-align: center;
+    padding: 60px 0 30px;
+  }
+  .section-header h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .section-header p {
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  /* Quick Guide */
+  .quick-guide {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    margin: 0 20px 40px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .quick-guide .guide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+  @media (max-width: 600px) {
+    .quick-guide .guide-grid { grid-template-columns: 1fr; }
+  }
+  .guide-card {
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.5;
+  }
+  .guide-card.green { background: #e8f5e9; }
+  .guide-card.red { background: #fbe9e7; }
+  .guide-card h4 { font-size: 1rem; margin-bottom: 10px; }
+  .guide-card .emoji { font-size: 1.5rem; }
+  .guide-card ul { list-style: none; padding: 0; }
+  .guide-card li {
+    padding: 4px 0;
+    font-size: 0.9rem;
+    color: #444;
+  }
+  .guide-card li::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  .guide-card.green li::before { background: #4caf50; }
+  .guide-card.red li::before { background: #e53935; }
+
+  /* Notes */
+  .notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 60px;
+  }
+  .note-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #f0ede8;
+  }
+  .note-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .note-card .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .note-card .author {
+    font-size: 0.85rem;
+    color: #999;
+  }
+  .note-card .likes {
+    font-size: 0.8rem;
+    color: #e74c3c;
+    font-weight: 600;
+  }
+  .note-card .number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #c0392b;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  .note-card .title-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .note-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .note-card .content {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  .note-card .content p { margin-bottom: 8px; }
+  .note-card .content ul { padding-left: 20px; margin: 8px 0; }
+  .note-card .content li { margin-bottom: 4px; }
+  .note-card .tags {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .note-card .tag {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: #f5f0eb;
+    color: #777;
+  }
+
+  /* Secret Method box */
+  .secret-box {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 16px;
+    border-left: 4px solid #e65100;
+  }
+  .secret-box h5 { color: #e65100; margin-bottom: 8px; font-size: 0.9rem; }
+
+  /* Top chart */
+  .chart-section { padding: 40px 0; }
+  .rank-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 12px;
+  }
+  .rank-bar .rank { width: 24px; font-weight: 700; color: #999; font-size: 0.85rem; }
+  .rank-bar .bar {
+    flex: 1;
+    height: 28px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #e74c3c, #f39c12);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 0.8rem;
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 40px;
+    transition: width 0.5s;
+  }
+  .rank-bar .title-text { font-size: 0.8rem; color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 0.8rem;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+  }
+
+  /* Tips highlight */
+  .tips-highlight {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    margin: 0 0 40px;
+    border: 1px solid #f0ede8;
+  }
+  .tips-highlight h3 { margin-bottom: 16px; font-size: 1.15rem; }
+  .tips-highlight .tip-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f0eb;
+  }
+  .tips-highlight .tip-item:last-child { border-bottom: none; }
+  .tips-highlight .tip-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .tips-highlight .tip-text { font-size: 0.9rem; color: #444; }
+  .tips-highlight .tip-text strong { color: #1a1a1a; }
+
+  @media (max-width: 600px) {
+    .quick-guide { padding: 24px; margin: 0 12px 24px; }
+    .note-card { padding: 20px; }
+    .hero { padding: 60px 16px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="badge">🔥 Trending on Xiaohongshu</div>
+  <h1>The Ultimate Guide to<br>Healthy Málà Tāng</h1>
+  <p>10 viral posts from Chinese social media — translated and curated.<br>Everything you need to know about eating Málà Tāng the healthy way.</p>
+</section>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stat-item">
+      <div class="num">10</div>
+      <div class="label">Curated Posts</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">120K+</div>
+      <div class="label">Total Likes</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">72K+</div>
+      <div class="label">Total Saves</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">🔥</div>
+      <div class="label">Trending Topic</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Quick Guide -->
+  <div class="section-header">
+    <h2>⚡ The Golden Rules</h2>
+    <p>What influencers, nutritionists, and real people say about healthy Málà Tāng</p>
+  </div>
+
+  <div class="quick-guide">
+    <div class="guide-grid">
+      <div class="guide-card green">
+        <h4><span class="emoji">✅</span> Load Up On</h4>
+        <ul>
+          <li>Leafy greens &amp; mushrooms</li>
+          <li>Lean beef &amp; chicken breast</li>
+          <li>Tofu, quail eggs, duck blood</li>
+          <li>Konjac noodles (almost zero cal)</li>
+          <li>Corn, lotus root (smart carbs)</li>
+        </ul>
+      </div>
+      <div class="guide-card red">
+        <h4><span class="emoji">❌</span> Avoid These</h4>
+        <ul>
+          <li>Fried meatballs (oil sponges)</li>
+          <li>Instant noodles &amp; fried dough</li>
+          <li>Creamy white broth (pure fat)</li>
+          <li>Sesame paste (1 tbsp ≈ 100 kcal)</li>
+          <li>Drinking the broth (salt + purine)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secret Tips -->
+  <div class="tips-highlight">
+    <h3>💡 Pro Tips From Top Posts</h3>
+    <div class="tip-item">
+      <div class="tip-icon">🥗</div>
+      <div class="tip-text"><strong>1:2:1 Ratio</strong> — Protein : Vegetables : Carbs. Build your bowl around this.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🕐</div>
+      <div class="tip-text"><strong>Eat it at lunch</strong> — Málà Tāng is best enjoyed midday. Behave yourself at dinner.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🥤</div>
+      <div class="tip-text"><strong>Never drink the broth</strong> — It's loaded with oil, salt, and purine. Just a taste is enough.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">💧</div>
+      <div class="tip-text"><strong>Drink water after</strong> — Prevents water retention and helps flush out excess sodium.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🍜</div>
+      <div class="tip-text"><strong>Skip processed meatballs</strong> — They're mostly starch and additives, not real protein.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🌶️</div>
+      <div class="tip-text"><strong>Add spice separately</strong> — Use fresh chili or chili flakes instead of relying on the oily broth.</div>
+    </div>
+  </div>
+
+  <!-- All Notes -->
+  <div class="section-header">
+    <h2>📝 All 10 Viral Posts</h2>
+    <p>Translated from Xiaohongshu (Little Red Book), ranked by popularity</p>
+  </div>
+
+  <div class="notes-list">
+
+    <!-- 1 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">1</span>
+        <div>
+          <h3>Why Do Some Lose Weight on Málà Tāng and You Don't? ❓</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 Dad's Review</span>
+            <span class="likes">❤️ 66,000 likes · 37,000 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p>Can't control your cravings? Then just eat freely and enjoy it!</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">2</span>
+        <div>
+          <h3>You Can Enjoy Málà Tāng Freedom at Home</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 Dali Ding Gua Gua</span>
+            <span class="likes">❤️ 26,000 likes · 23,000 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p>Food tutorial — how to make authentic, restaurant-quality málà tāng at home. Full recipe in photos.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">3</span>
+        <div>
+          <h3>44-Year-Old Male Celebrity's Daily Diet Revealed</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 Calvin Chen (辰亦儒)</span>
+            <span class="likes">❤️ 16,000 likes · 5,175 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p>Stop saying I never eat sauces or real food! Big bro also eats hotpot. My family eats pretty healthily.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">4</span>
+        <div>
+          <h3>Only 300 Calories! Low-Cal Málà Tāng 🔥</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 YushiJi</span>
+            <span class="likes">❤️ 5,897 likes · 5,049 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p>Ingredients: beef rolls, enoki mushrooms, seaweed, broccoli, konjac noodles. Beef rolls are low-cal and super filling. Super simple recipe — if you're craving something during your diet, make this!</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">5</span>
+        <div>
+          <h3>Spoiling My Pregnant Wife with Málà Tāng</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 Hudiu</span>
+            <span class="likes">❤️ 1,021 likes · 653 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p>My wife was miserable with morning sickness. She craved málà tāng, so I made a sesame paste version with a slight kick, added milk to mellow the spice — gentle, not harsh. Perfect for pregnancy, and she can eat it without worry. ❤️</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">6</span>
+        <div>
+          <h3>The 1.6 lbs Weight Loss Málà Tāng Method 🔥</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 Chef Ratatouille (Diet Version)</span>
+            <span class="likes">❤️ 590 likes · 168 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p><strong>The secret:</strong> Eat it at lunch! Less carbs! Behave at night!</p>
+        <ul>
+          <li>Protein : Vegetables : Carbs = <strong>1 : 2 : 1</strong></li>
+          <li>Corn, potato, taro = smart carbs</li>
+          <li>If you must eat noodles — <strong>control the portion</strong></li>
+          <li><strong>Avoid processed meatballs</strong> (full of starch)</li>
+          <li>Load up: enoki mushrooms, seaweed, winter melon, spinach, lettuce</li>
+          <li><strong>DON'T drink the broth!!!</strong> Not even a single sip</li>
+        </ul>
+        <p><em>Result: Lost 1.6 lbs the next day!</em></p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">7</span>
+        <div>
+          <h3>The Málà Tāng You'll Crave Again &amp; Again — Homemade</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 Xuanxuan Loves Meat</span>
+            <span class="likes">❤️ 540 likes · 226 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p>The recipe is ridiculously simple — and more importantly, it's delicious and healthy. Perfect for diet periods. Save this now!</p>
+        <div class="tags">
+          <span class="tag">#malatangtutorial</span>
+          <span class="tag">#cookingathome</span>
+          <span class="tag">#healthymalatang</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">8</span>
+        <div>
+          <h3>Diet-Friendly Málà Tāng — Eat Without Gaining</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 Nutritionist Li Junfeng</span>
+            <span class="likes">❤️ 256 likes · 191 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p>Diet-friendly málà tāng that won't make you gain weight — nutritious, delicious, and you'll still drop pounds!</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">9</span>
+        <div>
+          <h3>Day 193 of Losing Weight with My Son</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 Dingdang Mom (Daily Light Meals)</span>
+            <span class="likes">❤️ 185 likes · 159 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p>11-year-old son: 138.6 lbs → 109 lbs (lost 30 lbs). Mom: 143 lbs → 119.4 lbs (lost 23.8 lbs). Disciplined people's málà tāng — nutritionally complete, truly healthy, satisfying cravings without guilt!</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="note-card">
+      <div class="title-row">
+        <span class="number">10</span>
+        <div>
+          <h3>The Secret to Eating Málà Tāng Without Gaining Weight!</h3>
+          <div class="meta" style="margin-bottom:0;">
+            <span class="author">👤 Xiuxiu Diet Daily</span>
+            <span class="likes">❤️ 187 likes · 120 saves</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <p><strong>Broth:</strong> Go for clear or mushroom broth. Avoid creamy white (pure fat).</p>
+        <p><strong>Protein (load up):</strong> Tender beef, chicken breast, shrimp paste, quail eggs, tofu, duck blood.</p>
+        <p><strong>Carbs (control):</strong> Corn, potato slices, lotus root — use as staples.</p>
+        <p><strong>Veggies (eat freely):</strong> Leafy greens, mushrooms, seaweed, winter melon.</p>
+        <p><strong>Hidden bombs:</strong> Fried meatballs, instant noodles, fried dough, sesame paste (1 tbsp ≈ 100 kcal).</p>
+
+        <div class="secret-box">
+          <h5>✨ The Ultimate Method</h5>
+          <p>1️⃣ Drink half a glass of water first</p>
+          <p>2️⃣ Eat vegetables &amp; protein first</p>
+          <p>3️⃣ Eat carbs last</p>
+          <p>4️⃣ Only sip the broth — don't drink it</p>
+          <p style="margin-top:8px;"><strong>Full, satisfied, and still losing weight the next day! 👍</strong></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Popularity Chart -->
+  <div class="section-header">
+    <h2>📊 Most Popular Posts</h2>
+  </div>
+  <div class="chart-section">
+    <div class="rank-bar">
+      <span class="rank">#1</span>
+      <div class="bar" style="width:100%">Dad's Review — 66K ❤️</div>
+      <span class="title-text">66,000</span>
+    </div>
+    <div class="rank-bar">
+      <span class="rank">#2</span>
+      <div class="bar" style="width:50%">Dali Ding — 26K ❤️</div>
+      <span class="title-text">26,000</span>
+    </div>
+    <div class="rank-bar">
+      <span class="rank">#3</span>
+      <div class="bar" style="width:35%">Calvin Chen — 16K ❤️</div>
+      <span class="title-text">16,000</span>
+    </div>
+    <div class="rank-bar">
+      <span class="rank">#4</span>
+      <div class="bar" style="width:15%">YushiJi — 5.9K ❤️</div>
+      <span class="title-text">5,897</span>
+    </div>
+    <div class="rank-bar">
+      <span class="rank">#5</span>
+      <div class="bar" style="width:8%">Hudiu — 1K ❤️</div>
+      <span class="title-text">1,021</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Curated from Xiaohongshu (小红书) · Translated &amp; compiled by AutoClaw · June 2026</p>
+  <p style="margin-top:4px;color:#bbb;">All content belongs to original authors on Xiaohongshu</p>
+</div>
+
+</body>
+</html>
